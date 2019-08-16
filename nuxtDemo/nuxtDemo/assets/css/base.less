@@ -1,0 +1,95 @@
+@blue: #1081DE;
+@link-hover: #3098F2;
+@bg-color: #373D41;
+@white: #FFFFFF;
+@text-base: #546571;
+@text-green: #00c185;
+@text-black: #182F3D;
+@border-color: #D1D2D3;
+@import 'iconfont.less';
+@import 'customEle.less';
+html, body{
+  min-width: 1200px;
+  font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB',
+  'Microsoft Yahei', '\5FAE\8F6F\96C5\9ED1', Arial, sans-serif;
+  font-size: 13px;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  background-color: @white;
+  color: @text-base;
+}
+
+@media (-webkit-min-device-pixel-ratio: 1.5),(min-resolution: 2dppx) {
+  /* Retina下仍使用默认字体渲染 */
+  body {
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
+}
+
+:focus {
+  outline: none;
+}
+
+body, p, dl {
+  margin: 0;
+}
+
+dd {
+  margin-left: 0;
+}
+
+a{
+  color: @blue;
+  text-decoration: none;
+  &:hover{
+    color: @link-hover;
+    text-decoration: none;
+  }
+}
+
+.fs-normal{
+  font-size: 12px;
+}
+.fs24{
+  font-size: 24px;
+}
+
+.fw-normal{
+  font-weight: 500;
+}
+
+.text-base{
+  color: @text-base;
+}
+.text-green{
+  color: @text-green;
+}
+.text-black{
+  color: @text-black;
+}
+.text-right{
+  text-align: right;
+}
+
+.mb5{
+  margin-bottom: 5px;
+}
+.mb10{
+  margin-bottom: 10px;
+}
+.mb20{
+  margin-bottom: 20px;
+}
+
+.text-ellipsis{
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.white-nowrap{
+  white-space: nowrap;
+}

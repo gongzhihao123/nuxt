@@ -1,0 +1,245 @@
+@panel-border-color: #EDF3F7;
+@progress-bg-color: #24B3FA;
+@import 'base.less';
+
+.page {
+  .page-main {
+    min-height: 100vh;
+    padding-bottom: 40px;
+    box-sizing: border-box;
+    background-color: #F7FAFC;
+  }
+  &.default {
+    .header {
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      z-index: 2;
+    }
+    .page-menu {
+      position: relative;
+      //width: 170px;
+      //position: fixed;
+      //top: 50px;
+      //bottom: 0;
+      //left: 0;
+      //overflow: auto;
+      z-index: 2;
+    }
+    .page-main {
+      //padding-top: 50px;
+      //position: relative;
+      z-index: 2;
+      flex: 1;
+      overflow: hidden;
+      overflow-y: auto;
+      margin-bottom: 20px;
+    }
+    .page-main {
+      //padding-left: 170px;
+    }
+    .page-footer {
+      //margin-left: 170px;
+    }
+  }
+}
+
+.page-container{
+  &.default{
+    padding: 10px 20px 30px;
+  }
+}
+
+.layout-panel {
+  background-color: @white;
+  box-shadow: 0px 3px 8px 0px rgba(223, 234, 242, 0.13);
+  border-radius: 4px;
+  border: 1px solid @panel-border-color;
+}
+.layout-header {
+  padding: 20px;
+  color: #323C47;
+  font-size: 14px;
+  font-weight: bold;
+}
+.layout-title-label{
+  color: @text-black;
+  &.label-default {
+    line-height: 1;
+    padding-left: 26px;
+    padding-right: 16px;
+    border-left: 4px solid #22A4E5;
+    background-color: #E6F5FF;
+    font-size: 18px;
+    font-weight: 500;
+    &.label-green {
+      background-color: #E1FCEE;
+      border-left-color: #00C185;
+    }
+    &.label-yellow {
+      background-color: #FFF8E3;
+      border-left-color: #FFCC34;
+    }
+    &.label-red {
+      background-color: #FFE6E6;
+      border-left-color: #EB4E3D;
+    }
+    &.label-orange {
+      background-color: #FFF2E3;
+      border-left-color: #FF8B01;
+    }
+  }
+  &.label-small {
+    &:before {
+      content: '\20';
+      display: inline-block;
+      width: 3px;
+      height: 11px;
+      margin-right: 3px;
+      background-color: #22A4E5;
+    }
+    &.label-green:before {
+      background-color: #00C185;
+    }
+    &.label-yellow:before {
+      background-color: #FFF8E3;
+      background-color: #FFCC34;
+    }
+    &.label-red:before {
+      background-color: #EB4E3D;
+    }
+    &.label-orange:before {
+      background-color: #FF8B01;
+    }
+  }
+}
+
+*+.layout-panel,
+*+.layout-panel-default {
+  margin-top: 10px;
+}
+
+.layout-panel-default:extend(.layout-panel) {
+  padding: 20px 30px;
+  &>.layout-title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    color: @text-black;
+    &>.label-default {
+      margin-left: -30px;
+    }
+  }
+}
+
+.layout-flex-left {
+  display: flex;
+  align-items: center;
+  &>.layout-right {
+    flex: 1;
+    text-align: right;
+  }
+}
+
+.layout-flex-right {
+  display: flex;
+  align-items: center;
+  &>.layout-left {
+    flex: 1;
+  }
+  &>.layout-right {
+    text-align: right;
+  }
+}
+
+.el-table+.layout-pagination {
+  margin-top: 20px;
+}
+
+.layout-pagination {
+  display: flex;
+  align-items: center;
+  .pagination-info {
+    width: 200px;
+    font-size: 12px;
+  }
+  .text-right {
+    flex: 1;
+  }
+}
+
+.layout-charts {
+  &>.layout-title {
+    min-height: 28px;
+    margin-bottom: 10px;
+  }
+}
+
+.layout-flex-left,
+.layout-flex-right {
+  &>.layout-right {
+    white-space: nowrap;
+    word-spacing: -6px;
+    .el-select.w55 {
+      word-spacing: 0;
+      width: 55px;
+      &+.el-select {
+        margin-left: 8px;
+      }
+    }
+    .el-select.w105 {
+      width: 105px;
+    }
+    .el-select.w75 {
+      width: 75px;
+    }
+  }
+}
+
+.mr-progress-bar {
+  height: 14px;
+  background-color: rgba(36, 179, 250, 0.1);
+  border: 1px solid @progress-bg-color;
+  box-sizing: border-box;
+  position: relative;
+  &.yellow-bar {
+    border-color: #FFCC34;
+    background-color: rgba(255, 204, 52, 0.1);
+    .mr-progress {
+      background-color: #FFCC34;
+    }
+  }
+  .mr-progress {
+    height: 100%;
+    background-color: @progress-bg-color;
+  }
+  .mr-progress-text {
+    height: 100%;
+    line-height: 12px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #182F3D;
+  }
+}
+
+.dialog-default {
+  .layout-panel,
+  .layout-panel-default {
+    border: 0;
+    box-shadow: none;
+    &>.layout-title {
+      margin-bottom: 5px;
+    }
+  }
+  *+.layout-panel,
+  *+.layout-panel-default {
+    margin-top: 10px;
+  }
+}
+
+.nuxt-breadcrumb {
+  height: 50px;
+  background: #ffffff;
+}

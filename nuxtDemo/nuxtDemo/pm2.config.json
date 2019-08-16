@@ -1,0 +1,12 @@
+{
+  "name": "monitor-report",
+  "script": "./node_modules/nuxt/bin/nuxt.js",
+  "args": "start",
+  "watch": false,
+  "merge_logs": true,
+  "error_file": "pm2_log/error/err.log",
+  "out_file": "pm2_log/out/out.log",
+  "log_date_format": "YYYY-MM-DD HH:mm Z",
+  "exec_mode": "cluster",
+  "instances": 2
+}

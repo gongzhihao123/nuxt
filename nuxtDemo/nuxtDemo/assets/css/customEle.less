@@ -1,0 +1,231 @@
+.border () {
+  border-color: @border-color;
+  border-radius: 2px;
+  box-shadow:0px 4px 6px 0px rgba(0,0,0,0.12);
+}
+.el-button--default{
+  background: #FCFCFC;
+}
+.el-button--primary{
+  background: @blue;
+}
+
+.el-select{
+  &.full{
+    display: block;
+  }
+  .el-input .el-icon-arrow-up,.el-input .el-icon-arrow-down{
+    color: #333333;
+  }
+  .el-input--suffix{
+    .el-input__inner{
+      padding-left: 5px;
+      padding-right: 20px;
+      border-radius: 2px;
+      border-color: #D1D2D3;
+    }
+  }
+  .el-input__suffix{
+    right: 0;
+  }
+  .el-input__icon{
+    width: 20px;
+  }
+}
+.el-select-dropdown{
+  .border();
+  .el-select-dropdown__item{
+    padding: 0 5px;
+  }
+  .popper__arrow{
+    display: none;
+  }
+  &[x-placement^=top]{
+    margin-bottom: 0;
+  }
+  &[x-placement^=bottom]{
+    margin-top: 0;
+  }
+}
+
+.el-dropdown-menu{
+  .border();
+  &[x-placement^=top]{
+    margin-bottom: 0;
+  }
+  &[x-placement^=bottom]{
+    margin-top: 0;
+  }
+  .popper__arrow{
+    display: none;
+  }
+}
+
+.el-date-editor{
+  &.full{
+    width: 100%;
+  }
+}
+
+.el-table{
+  font-size: 13px;
+  td, th{
+    padding: 10px 0;
+  }
+  td, th.is-leaf{
+    border-bottom: 0;
+  }
+  .el-table__header{
+    background-color: #F0F4F7;
+  }
+  th{
+    background-color: #F0F4F7;
+    color: @text-black;
+    font-weight: 400;
+  }
+  .cell{
+    line-height: 20px;
+  }
+  .el-button--text{
+    padding-top: 0;
+    padding-bottom: 0;
+    font-size: 13px;
+  }
+}
+.el-table--striped .el-table__body tr.el-table__row--striped td{
+  background-color: #F5F9FC;
+}
+.el-table--enable-row-hover .el-table__body tr:hover>td{
+  background-color: #E9F6FF;
+}
+.el-table__empty-block{
+  min-height: 40px;
+}
+
+.el-pagination{
+  font-weight: 400;
+  & button, & span:not([class*=suffix]){
+    height: 24px;
+    line-height: 24px;
+  }
+  &.is-background .btn-next, &.is-background .btn-prev, &.is-background .el-pager li{
+    min-width: 24px;
+    height: 24px;
+    line-height: 22px;
+    background-color: #FCFCFC;
+    border: 1px solid @border-color;
+  }
+  &.is-background .el-pager li:not(.disabled).active{
+    border-color: #66B2F1;
+    background-color: #E5F2FF;
+    color: @blue;
+  }
+  .el-pager .more{
+    &:before{
+      line-height: 24px;
+    }
+  }
+  .el-pagination__editor{
+    height: 24px;
+    &.el-input .el-input__inner{
+      height: 24px;
+    }
+  }
+}
+
+.el-tabs__item{
+  font-weight: normal;
+}
+.el-tabs__nav-wrap:after{
+  height: 1px;
+  background-color: #EDF3F7;
+}
+.el-tabs__active-bar{
+  height: 3px;
+  background-color: #007EE8;
+}
+
+.el-popper{
+  &.is-dark{
+    border-color: #303133;
+    background-color: #303133;
+    color: #ffffff;
+    &[x-placement^=top] .popper__arrow{
+      border-top-color: #303133;
+      &:after{
+        border-top-color: #303133;
+      }
+    }
+    &[x-placement^=bottom] .popper__arrow{
+      border-bottom-color: #303133;
+      &:after{
+        border-bottom-color: #303133;
+      }
+    }
+    &[x-placement^=left] .popper__arrow{
+      border-left-color: #303133;
+      &:after{
+        border-left-color: #303133;
+      }
+    }
+    &[x-placement^=right] .popper__arrow{
+      border-right-color: #303133;
+      &:after{
+        border-right-color: #303133;
+      }
+    }
+  }
+  &[x-placement^=bottom] .popper__arrow{
+    border-bottom-color: @border-color;
+  }
+}
+
+.dialog-default{
+  &.dialog-full{
+    .el-dialog{
+      background-color: transparent;
+      box-shadow: none;
+      border-radius: 0;
+      .el-dialog__header {
+        display: none;
+      }
+    }
+  }
+}
+.dialog-player {
+  .el-dialog__body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 0;
+  }
+  .layout-player {
+    width: 60%;
+    height: 90%;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    .layout-title {
+      position: relative;
+      .el-dialog__headerbtn {
+        top: -20px;
+        right: -20px;
+        .el-dialog__close {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+  .video-player-box{
+    background-color: #000;
+  }
+  .video-player-box, .video-player-box .video-js {
+    height: 100%;
+  }
+}
+
+.el-time-panel{
+  left: auto;
+  right: -6px;
+}
