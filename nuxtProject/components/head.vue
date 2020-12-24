@@ -1,0 +1,167 @@
+<template>
+  <div class="comhead">
+    <div class="comhead-logo">
+      <img src="@/assets/img/comhead-logo.png" alt="">
+    </div>
+    <ul class="comhead-nav">
+      <li v-for="(item, index) in navList" :key="index" :class="navSelectd * 1 === (index * 1) ? 'navLiActive' : ''" @click="changeNav(index)">
+        {{ item.title }}
+      </li>
+    </ul>
+    <div class="comhead-handle">
+      <div class="comhead-handle-sec">
+        <div>今天是{{ nowDate }} {{ nowWeek }}</div>
+        <div>
+          <el-input v-model="input" placeholder="请输入内容" clearable />
+          <p />
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+export default {
+  data () {
+    return {
+      nowDate: '',
+      nowTime: '',
+      nowWeek: '',
+      navList: [
+        { id: 1, title: '首页' },
+        { id: 2, title: '信息公开' },
+        { id: 3, title: '党纪法规' },
+        { id: 4, title: '以案说纪' },
+        { id: 5, title: '教育基地' },
+        { id: 6, title: '廉政视频' },
+        { id: 7, title: '监督举报' }
+      ],
+      navSelectd: 0,
+      input: ''
+    }
+  },
+  mounted () {
+    this.setNowTimes()
+  },
+  methods: {
+    // 导航选中
+    changeNav (index) {
+      this.navSelectd = index
+    },
+    setNowTimes () {
+      const myDate = new Date()
+      // console.log(myDate)
+      const wk = myDate.getDay()
+      const yy = String(myDate.getFullYear())
+      const mm = myDate.getMonth() + 1
+      const dd = String(
+        myDate.getDate() < 10 ? '0' + myDate.getDate() : myDate.getDate()
+      )
+      // let hou = String(
+      //   myDate.getHours() < 10 ? "0" + myDate.getHours() : myDate.getHours()
+      // );
+      // let min = String(
+      //   myDate.getMinutes() < 10
+      //     ? "0" + myDate.getMinutes()
+      //     : myDate.getMinutes()
+      // );
+      // let sec = String(
+      //   myDate.getSeconds() < 10
+      //     ? "0" + myDate.getSeconds()
+      //     : myDate.getSeconds()
+      // );
+      const weeks = [
+        '星期日',
+        '星期一',
+        '星期二',
+        '星期三',
+        '星期四',
+        '星期五',
+        '星期六'
+      ]
+      const week = weeks[wk]
+      this.nowDate = yy + '年' + mm + '月' + dd + '日'
+      // this.nowTime = hou + ":" + min + ":" + sec;
+      this.nowWeek = week
+    }
+  }
+}
+</script>
+<style lang="scss">
+.comhead {
+  box-sizing: initial;
+  .comhead-logo {
+    width: 100%;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(./../assets/img/comhead-bg.jpg) no-repeat center;
+    background-size: cover;
+    > img {
+      display: block;
+      max-width: 100%;
+      margin: 0 auto;
+    }
+  }
+  .comhead-nav {
+    width: 100%;
+    height: 65px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    background: #cc0001;
+    > li {
+      float: left;
+      width: 122px;
+      padding: 0 10px;
+      text-align: center;
+      line-height: 65px;
+      font-size: 22px;
+      color: #fff;
+      cursor: pointer;
+    }
+    li:hover {
+      background: #f24041;
+    }
+    > .navLiActive {
+      background: #f24041;
+    }
+  }
+  .comhead-handle {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: #e3e3e3;
+    .comhead-handle-sec {
+      width: 1000px;
+      display: flex;
+      justify-content: space-between;
+      line-height: 45px;
+      font-size: 16px;
+      color: #333;
+      div:last-child {
+        display: flex;
+        align-items: center;
+        .el-input {
+          width: 218px;
+          .el-input__inner {
+            height: 29px;
+            margin-top: 8px;
+            font-size: 16px;
+          }
+          .el-input__inner:focus {
+            border: 1px solid #333;
+          }
+        }
+        p {
+          width: 68px;
+          height: 28px;
+          cursor: pointer;
+          background: #b8b8b8 url(./../assets/img/search.jpg) no-repeat
+            center;
+        }
+      }
+    }
+  }
+}
+</style>
