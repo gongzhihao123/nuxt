@@ -4,7 +4,7 @@
       <img src="@/assets/img/comhead-logo.png" alt="">
     </div>
     <ul class="comhead-nav">
-      <li v-for="(item, index) in navList" :key="index" :class="navSelectd * 1 === (index * 1) ? 'navLiActive' : ''" @click="changeNav(index)">
+      <li v-for="(item, index) in navList" :key="index" :class="navSelectd * 1 === (index * 1) ? 'navLiActive' : ''" @click="changeNav(index, item.id)">
         {{ item.title }}
       </li>
     </ul>
@@ -44,8 +44,31 @@ export default {
   },
   methods: {
     // 导航选中
-    changeNav (index) {
+    changeNav (index, id) {
       this.navSelectd = index
+      switch (id) {
+        case 1:
+          this.$router.push('/')
+          break
+        case 2:
+          this.$router.push({ name: 'newsOpen' })
+          break
+        case 3:
+          this.$router.push('/')
+          break
+        case 4:
+          this.$router.push({ name: 'list-imgText' })
+          break
+        case 5:
+          this.$router.push({ name: 'list-imgText' })
+          break
+        case 6:
+          this.$router.push({ name: 'list-imgText' })
+          break
+        case 7:
+          this.$router.push('/')
+          break
+      }
     },
     setNowTimes () {
       const myDate = new Date()

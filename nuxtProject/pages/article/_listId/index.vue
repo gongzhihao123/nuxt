@@ -7,7 +7,7 @@
       </div>
       <div v-if="pageflag" class="list1-section">
         <ul>
-          <li>
+          <li @click="goDetail">
             <p>中共中央办公厅印发《干部选拔任用工作监督检查和责任追究办法》</p>
             <i>[2019-06-05]</i>
           </li>
@@ -77,14 +77,17 @@ export default {
   // },
   data () {
     return {
-      pageflag: false,
+      pageflag: true,
       pageNo: 1,
       pageSize: 10
     }
   },
   methods: {
     handleSizeChange () {},
-    handleCurrentChange () {}
+    handleCurrentChange () {},
+    goDetail () {
+      this.$router.push({ name: 'article-articleDetail-id', params: { id: 1 } })
+    }
   }
 }
 </script>

@@ -401,7 +401,7 @@ export default {
     },
     // 跳转列表
     goList () {
-      this.$router.push({ name: 'article-list1Id', params: { list1Id: 1 } })
+      this.$router.push({ name: 'article-listId', params: { listId: 1 } })
     }
   }
 }

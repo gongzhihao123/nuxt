@@ -1,9 +1,9 @@
 <template>
   <div class="list3">
-    <!-- <comHead /> -->
+    <!-- <comHead></comHead> -->
     <div class="list3-container">
       <div class="mbx">
-        当前位置：<span @click="$router.push('/portal')">首页</span> > <span>列表</span>
+        当前位置：<span @click="$router.push('/')">首页</span> > <span>列表</span>
       </div>
       <div class="list3-section">
         <ul>
@@ -33,7 +33,7 @@
           </li>
         </ul>
         <el-pagination
-          :current-page.sync="pageNo"
+          :current-page="pageNo"
           :page-size="pageSize"
           layout="prev, pager, next, jumper"
           :total="1000"
@@ -42,23 +42,23 @@
         />
       </div>
     </div>
-    <!-- <comFoot /> -->
+    <!-- <comFoot></comFoot> -->
   </div>
 </template>
 <script>
-// import comHead from './../../components/common/head'
-// import comFoot from './../../components/common/foot'
+// import comHead from '@/components/common/head'
+// import comFoot from '@/components/common/foot'
 export default {
-  // components: {
-  //   comHead,
-  //   comFoot
-  // },
   data () {
     return {
       pageNo: 1,
       pageSize: '10'
     }
   },
+  // components: {
+  //   comHead,
+  //   comFoot
+  // },
   methods: {
     handleSizeChange () {},
     handleCurrentChange () {}
