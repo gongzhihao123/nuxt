@@ -1,52 +1,44 @@
-import * as axios from 'axios'
+import { Message } from 'element-ui'
+export default ({ redirect, $axios, route, store }) => {
+  // 基本配置
+  $axios.defaults.timeout = 1000
 
-import {
-  // Message,
-  Notification
-} from 'element-ui'
+  $axios.onRequest((config) => {
+    config.headers.token = 'token'
 
-const service = axios.create({
-  baseURL: 'https://interface.meiriyiwen.com', // 域名信息-测试
-  timeout: 10000
-})
+    return config
+  })
 
-// 请求拦截 可在请求头中加入token等
-service.interceptors.request.use((config) => {
-  return config
-}, (error) => {
-  return Promise.reject(error)
-})
+  $axios.onResponse((res) => {
+    // 返回数据逻辑处理
+    // if (res.data.code === 2)
+    return res
+  })
 
-// 响应拦截 对响应消息作初步的处理
-service.interceptors.response.use((resp) => {
-  if (resp.data) {
-    if (resp.data.code !== '200') {
-      // Message({
-      //   type: 'error',
-      //   message: resp.data.message,
-      //   duration: 5000
-      // })
-    }
-    return { code: resp.data.code, data: resp.data.data, msg: resp.data.message }
-  } else {
-    return resp
-  }
-}, (error) => {
-  if (error.response) {
-    switch (error.response.states) {
-      case 400: {
-        if (error.response && error.response.data && error.response.data.message) {
-          Notification.error({
-            title: '400错误',
-            message: error.response.data.message,
-            duration: 5000,
-            closable: true
-          })
-        }
-        break
-      }
-    }
-  }
-})
-
-export default service
+  $axios.onError((error) => {
+    Message({
+      //  饿了么的消息弹窗组件,类似toast
+      showClose: true,
+      message: error,
+      type: 'error.data.error.message'
+    })
+    // eslint-disable-next-line no-console
+    console.log('Making request to ' + error.response.config.url)
+    // switch (error.response.status) {
+    //   case 403:
+    //     // 重定向到 403 页
+    //     redirect('/error/403')
+    //     break
+    //   case 404:
+    //     // 重定向到 404 页
+    //     redirect('/error/404')
+    //     break
+    //   case 500:
+    //     // 重定向到 500 页
+    //     redirect('/error/500')
+    //     break
+    //   default:
+    //     break
+    // }
+  })
+}

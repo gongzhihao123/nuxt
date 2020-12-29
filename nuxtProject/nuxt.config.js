@@ -1,3 +1,5 @@
+// import { resolve } from "core-js/fn/promise"
+
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -12,6 +14,17 @@ export default {
     ]
   },
 
+  router: {
+    middleware: 'auth',
+    extendRoutes (routes, resolve) {
+      routes.push({
+        name: 'home',
+        path: '/index',
+        component: resolve(__dirname, 'pages/index.vue')
+      })
+    }
+  },
+  loading: '~/components/loading.vue',
   /*
   ** 需要全局引入的css样式
   */
@@ -26,7 +39,8 @@ export default {
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
   plugins: [
     { src: '@/plugins/element-ui', ssr: true },
-    { src: '@/plugins/seamless-scroll', ssr: false }
+    { src: '@/plugins/seamless-scroll', ssr: false },
+    { src: '@/plugins/request', ssr: true }
   ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
@@ -45,11 +59,26 @@ export default {
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
-    '@nuxt/content'
+    '@nuxt/content',
+    'cookie-universal-nuxt'
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    proxy: true,
+    prefix: '/api/',
+    credentials: true
+  },
+
+  proxy: {
+    '/api/': {
+      target: 'https://h5api.zhefengle.cn',
+      pathRewrite: {
+        '^/api/': '/',
+        changeOrigin: true
+      }
+    }
+  },
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
   content: {},

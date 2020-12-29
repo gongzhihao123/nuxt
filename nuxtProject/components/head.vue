@@ -3,11 +3,27 @@
     <div class="comhead-logo">
       <img src="@/assets/img/comhead-logo.png" alt="">
     </div>
-    <ul class="comhead-nav">
-      <li v-for="(item, index) in navList" :key="index" :class="navSelectd * 1 === (index * 1) ? 'navLiActive' : ''" @click="changeNav(index, item.id)">
-        {{ item.title }}
-      </li>
-    </ul>
+    <div class="comhead-nav">
+      <ul>
+        <!-- <li
+          v-for="(item, index) in navList"
+          :key="index"
+          :class="navSelectd * 1 === (index * 1) ? 'navLiActive' : ''"
+          @click="changeNav(index, item.id)"
+        >
+          {{ item.title }}
+        </li> -->
+        <nuxt-link
+          v-for="(item, index) in navList"
+          :key="index"
+          tag="li"
+          :to="item.path"
+          active-class="head--active"
+        >
+          {{ item.title }}
+        </nuxt-link>
+      </ul>
+    </div>
     <div class="comhead-handle">
       <div class="comhead-handle-sec">
         <div>今天是{{ nowDate }} {{ nowWeek }}</div>
@@ -27,43 +43,48 @@ export default {
       nowTime: '',
       nowWeek: '',
       navList: [
-        { id: 1, title: '首页' },
-        { id: 2, title: '信息公开' },
-        { id: 3, title: '党纪法规' },
-        { id: 4, title: '以案说纪' },
-        { id: 5, title: '教育基地' },
-        { id: 6, title: '廉政视频' },
-        { id: 7, title: '监督举报' }
+        { id: 1, title: '首页', path: '/index' },
+        { id: 2, title: '信息公开', path: '/newsOpen' },
+        { id: 3, title: '党纪法规', path: '/list' },
+        { id: 4, title: '以案说纪', path: '/list' },
+        { id: 5, title: '教育基地', path: '/list' },
+        { id: 6, title: '廉政视频', path: '/list' },
+        { id: 7, title: '监督举报', path: '/list' }
       ],
       navSelectd: 0,
       input: ''
     }
   },
   mounted () {
+    const selectIndex = sessionStorage.getItem('selectIndex')
+    if (selectIndex) {
+      this.navSelectd = sessionStorage.getItem('selectIndex')
+    }
     this.setNowTimes()
   },
   methods: {
     // 导航选中
     changeNav (index, id) {
       this.navSelectd = index
+      sessionStorage.setItem('selectIndex', index)
       switch (id) {
         case 1:
           this.$router.push('/')
           break
         case 2:
-          this.$router.push({ name: 'newsOpen' })
+          this.$router.push('/newsOpen')
           break
         case 3:
           this.$router.push('/')
           break
         case 4:
-          this.$router.push({ name: 'list-imgText' })
+          this.$router.push('/list/imgText')
           break
         case 5:
-          this.$router.push({ name: 'list-imgText' })
+          this.$router.push('/list/imgText')
           break
         case 6:
-          this.$router.push({ name: 'list-imgText' })
+          this.$router.push('/list/imgText')
           break
         case 7:
           this.$router.push('/')
@@ -72,7 +93,6 @@ export default {
     },
     setNowTimes () {
       const myDate = new Date()
-      // console.log(myDate)
       const wk = myDate.getDay()
       const yy = String(myDate.getFullYear())
       const mm = myDate.getMonth() + 1
@@ -109,6 +129,11 @@ export default {
   }
 }
 </script>
+<style scoped>
+.head--active {
+  background: #f24041;
+}
+</style>
 <style lang="scss">
 .comhead {
   box-sizing: initial;
@@ -128,26 +153,27 @@ export default {
   }
   .comhead-nav {
     width: 100%;
-    height: 65px;
-    display: flex;
-    align-content: center;
-    justify-content: center;
     background: #cc0001;
-    > li {
-      float: left;
-      width: 122px;
-      padding: 0 10px;
-      text-align: center;
-      line-height: 65px;
-      font-size: 22px;
-      color: #fff;
-      cursor: pointer;
-    }
-    li:hover {
-      background: #f24041;
-    }
-    > .navLiActive {
-      background: #f24041;
+    ul {
+      height: 65px;
+      width: 1000px;
+      margin: 0 auto;
+      > li {
+        float: left;
+        width: 122px;
+        padding: 0 10px;
+        text-align: center;
+        line-height: 65px;
+        font-size: 22px;
+        color: #fff;
+        cursor: pointer;
+      }
+      li:hover {
+        background: #f24041;
+      }
+      > .navLiActive {
+        background: #f24041;
+      }
     }
   }
   .comhead-handle {

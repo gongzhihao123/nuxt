@@ -274,9 +274,24 @@
 <script>
 // import vueSeamless from 'vue-seamless-scroll'
 export default {
-  // components: {
-  //   vueSeamless
-  // },
+  // 参数的有效性查看
+  validate ({ params, query }) {
+    return true
+  },
+  // 读数据,vuex
+  fetch ({ store }) {
+    // eslint-disable-next-line no-console
+    console.log('fetch')
+    // 异步业务逻辑，读取服务器端数据提交给vuex
+  },
+  // 读数据，返回组件
+  async asyncData ({ $axios }) {
+    await $axios('/index.html').then((res) => {
+      // eslint-disable-next-line no-console
+      console.log('asyncData', res.data)
+    })
+    // 异步业务逻辑，读取服务器端数据
+  },
   data () {
     return {
       nowDate: '',
@@ -397,11 +412,11 @@ export default {
     },
     // 文章详情
     goDetail (val) {
-      this.$router.push({ name: 'article-articleDetail-id', params: { id: val } })
+      this.$router.push({ path: '/detail/' + val, params: { id: val } })
     },
     // 跳转列表
     goList () {
-      this.$router.push({ name: 'article-listId', params: { listId: 1 } })
+      this.$router.push({ path: '/list', params: { listId: 1 } })
     }
   }
 }

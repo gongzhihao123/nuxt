@@ -1,77 +1,29 @@
 <template>
   <div class="list2">
     <!-- <comHead></comHead> -->
-    <!-- <div class="list2-container"> -->
-    <!-- <div class="mbx">
+    <div class="list2-container">
+      <div class="mbx">
         当前位置：<span @click="$router.push('/portal')">首页</span> > <span>列表</span>
-      </div> -->
-    <!-- <div class="list2-section"> -->
-    <!-- <div class="nr_left">
+      </div>
+      <div class="list2-section">
+        <div class="nr_left">
           <div>
             <p class="nr_left_top">
-              <img src="./../../assets/img/nr_left_top.png" alt="">
+              <img src="@/assets/img/nr_left_top.png" alt="">
               <span>机构简介</span>
             </p>
             <ul class="nr_left_List">
-              <li v-for="item in nr_left_list" :key="item.id" :class="organSelec * 1 === item.id * 1 ? 'nr_navActive' : ''" @click="changeOrgan(item.id)">
-                <nuxt-link to="/newsOpen/gzcx">
-                  {{ item.title }}
-                </nuxt-link>
+              <li v-for="item in nr_left_list" :key="item.id" :class="organSelec * 1 === item.id * 1 ? 'nr_navActive' : ''" @click="changeOrgan(item.id, item.path)">
+                {{ item.title }}
               </li>
             </ul>
           </div>
-        </div> -->
-    <div class="nr_right">
-      <ul>
-        <li>
-          <img src="http://www.bjhrjjjc.gov.cn/hrjjjc/resource/cms/2020/01/img_pc_site/微信图片_20200103084010.png" alt="">
-          <p>程海军</p>
-          <span>区委常委、区纪委书记、区监委主任</span>
-        </li>
-        <li>
-          <img src="http://www.bjhrjjjc.gov.cn/hrjjjc/resource/cms/2020/01/img_pc_site/微信图片_20200103084010.png" alt="">
-          <p>程海军</p>
-          <span>区委常委、区纪委书记、区监委主任</span>
-        </li>
-        <li>
-          <img src="http://www.bjhrjjjc.gov.cn/hrjjjc/resource/cms/2020/01/img_pc_site/微信图片_20200103084010.png" alt="">
-          <p>程海军</p>
-          <span>区委常委、区纪委书记、区监委主任</span>
-        </li>
-        <li>
-          <img src="http://www.bjhrjjjc.gov.cn/hrjjjc/resource/cms/2020/01/img_pc_site/微信图片_20200103084010.png" alt="">
-          <p>程海军</p>
-          <span>区委常委、区纪委书记、区监委主任</span>
-        </li>
-        <li>
-          <img src="http://www.bjhrjjjc.gov.cn/hrjjjc/resource/cms/2020/01/img_pc_site/微信图片_20200103084010.png" alt="">
-          <p>程海军</p>
-          <span>区委常委、区纪委书记、区监委主任</span>
-        </li>
-        <li>
-          <img src="http://www.bjhrjjjc.gov.cn/hrjjjc/resource/cms/2020/01/img_pc_site/微信图片_20200103084010.png" alt="">
-          <p>程海军</p>
-          <span>区委常委、区纪委书记、区监委主任</span>
-        </li>
-        <li>
-          <img src="http://www.bjhrjjjc.gov.cn/hrjjjc/resource/cms/2020/01/img_pc_site/微信图片_20200103084010.png" alt="">
-          <p>程海军</p>
-          <span>区委常委、区纪委书记、区监委主任</span>
-        </li>
-        <li>
-          <img src="http://www.bjhrjjjc.gov.cn/hrjjjc/resource/cms/2020/01/img_pc_site/微信图片_20200103084010.png" alt="">
-          <p>程海军</p>
-          <span>区委常委、区纪委书记、区监委主任</span>
-        </li>
-      </ul>
-      <p>
-        怀柔区第五届纪律检查委员会委员：程海军、吴宏英、魏菲、窦宪策、樊起升、王艳杰、王亚静、
-        刘俊军、杜连侠、李永志、张九龙、张志远、杜连明、牛凤林、周榕立、张同发、李春月、刘景文、
-        崔连元、张卫兵、任会东、金文领、刘蔚、黄鹤、孟凡大、杨同柱、寇雪峰、张文顺、唐欣
-      </p>
+        </div>
+        <!-- <div class="nr_right"> -->
+        <nuxt />
+        <!-- </div> -->
+      </div>
     </div>
-    <!-- </div> -->
-    <!-- </div> -->
     <!-- <comFoot></comFoot> -->
   </div>
 </template>
@@ -82,8 +34,8 @@ export default {
   data () {
     return {
       nr_left_list: [
-        { id: 1, title: '领导机构' },
-        { id: 2, title: '组织机构' }
+        { id: 1, title: '领导机构', path: '/newsOpen' },
+        { id: 2, title: '组织机构', path: '/newsOpen/gzcx' }
       ],
       organSelec: 1
     }
@@ -93,8 +45,9 @@ export default {
   //   comFoot
   // },
   methods: {
-    changeOrgan (index) {
+    changeOrgan (index, path) {
       this.organSelec = index
+      this.$router.push(path)
     }
   }
 }
@@ -187,7 +140,7 @@ export default {
               font-size: 20px;
               font-weight: bold;
               color: #333;
-              background: url(./../../assets/img/list2-right.png) no-repeat 20px center;
+              background: url(./../assets/img/list2-right.png) no-repeat 20px center;
             }
             > span {
               display: inline-block;
