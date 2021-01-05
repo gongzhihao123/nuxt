@@ -22,7 +22,7 @@
     "delete": "pm2 delete ./pm2.config.json"
   },
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "cross-env": "^5.2.0",
     "element-ui": "^2.4.11",
     "less": "^3.9.0",
