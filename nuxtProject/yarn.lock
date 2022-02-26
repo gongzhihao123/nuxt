@@ -1443,6 +1443,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/cookie@^0.3.3":
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/@types/cookie/-/cookie-0.3.3.tgz#85bc74ba782fb7aa3a514d11767832b0e3bc6803"
+  integrity sha512-LKVP3cgXBT9RYj+t+9FDKwS5tdI+rPBXaNSkma7hvqy35lc7mAokC2zsqWJH0LaqIt3B962nuYI77hsJoT1gow==
+
 "@types/etag@^1.8.0":
   version "1.8.0"
   resolved "https://registry.npmjs.org/@types/etag/-/etag-1.8.0.tgz#37f0b1f3ea46da7ae319bbedb607e375b4c99f7e"
@@ -2998,15 +3003,6 @@ cli-width@^3.0.0:
   resolved "https://registry.npmjs.org/cli-width/-/cli-width-3.0.0.tgz#a2f48437a2caa9a22436e794bf071ec9e61cedf6"
   integrity sha512-FxqpkPPwu1HjuN93Omfm4h8uIanXofW0RxVEW3k5RKx+mJJYSthzNhp32Kzxxy3YAEZ/Dc/EWN1vZRY0+kOhbw==
 
-clipboard@^2.0.0:
-  version "2.0.6"
-  resolved "https://registry.npmjs.org/clipboard/-/clipboard-2.0.6.tgz#52921296eec0fdf77ead1749421b21c968647376"
-  integrity sha512-g5zbiixBRk/wyKakSwCKd7vQXDjFnAMGHoEyBogG/bw9kTD9GvdAvaoRR1ALcEzt3pVKxZR0pViekPMIS0QyGg==
-  dependencies:
-    good-listener "^1.2.2"
-    select "^1.1.2"
-    tiny-emitter "^2.0.0"
-
 cliui@^5.0.0:
   version "5.0.0"
   resolved "https://registry.npmjs.org/cliui/-/cliui-5.0.0.tgz#deefcfdb2e800784aa34f46fa08e06851c7bbbc5"
@@ -3230,6 +3226,22 @@ cookie-signature@1.0.6:
   resolved "https://registry.npmjs.org/cookie-signature/-/cookie-signature-1.0.6.tgz#e303a882b342cc3ee8ca513a79999734dab3ae2c"
   integrity sha1-4wOogrNCzD7oylE6eZmXNNqzriw=
 
+cookie-universal-nuxt@^2.1.4:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/cookie-universal-nuxt/-/cookie-universal-nuxt-2.1.5.tgz#669f2ff95b1bc1962c86edd69c954f60729e71e5"
+  integrity sha512-P0WCTKIyemWNtHi9lxrS5cxZmieOIEjt28B7Alu6cdSB9RqtUtpkqYyV9PRK6oJrT5eIPDYjHsJQlh6SUrFJOg==
+  dependencies:
+    "@types/cookie" "^0.3.3"
+    cookie-universal "^2.1.5"
+
+cookie-universal@^2.1.5:
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/cookie-universal/-/cookie-universal-2.1.5.tgz#9a6cefbfb61c750a1b8ee2610bf71566bd719544"
+  integrity sha512-nqOOmEkovCQxNYGIyzhcwsmh4c7xnxe7RWdiYFOoml9MP4L32IlU3LdPC7r7nQEnnM+9Uxlk/UhtvBl5is6M/w==
+  dependencies:
+    "@types/cookie" "^0.3.3"
+    cookie "^0.4.0"
+
 cookie@0.4.0:
   version "0.4.0"
   resolved "https://registry.npmjs.org/cookie/-/cookie-0.4.0.tgz#beb437e7022b3b6d49019d088665303ebe9c14ba"
@@ -3239,6 +3251,11 @@ cookie@^0.3.1:
   version "0.3.1"
   resolved "https://registry.npmjs.org/cookie/-/cookie-0.3.1.tgz#e7e0a1f9ef43b4c8ba925c5c5a96e806d16873bb"
   integrity sha1-5+Ch+e9DtMi6klxcWpboBtFoc7s=
+
+cookie@^0.4.0:
+  version "0.4.2"
+  resolved "https://registry.yarnpkg.com/cookie/-/cookie-0.4.2.tgz#0e41f24de5ecf317947c82fc789e06a884824432"
+  integrity sha512-aSWTXFzaKWkvHO1Ny/s+ePFpvKsPnjc551iI41v3ny/ow6tBG5Vd+FuqGNhh1LxOmVzOlGUriIlOaokOvhaStA==
 
 copy-concurrently@^1.0.0:
   version "1.0.5"
@@ -3674,11 +3691,6 @@ delayed-stream@~1.0.0:
   version "1.0.0"
   resolved "https://registry.npmjs.org/delayed-stream/-/delayed-stream-1.0.0.tgz#df3ae199acadfb7d440aaae0b29e2272b24ec619"
   integrity sha1-3zrhmayt+31ECqrgsp4icrJOxhk=
-
-delegate@^3.1.2:
-  version "3.2.0"
-  resolved "https://registry.npmjs.org/delegate/-/delegate-3.2.0.tgz#b66b71c3158522e8ab5744f720d8ca0c2af59166"
-  integrity sha512-IofjkYBZaZivn0V8nnsMJGBr4jVLxHDheKSW88PyxS5QC4Vo9ZbZVvhzlSxY87fVq3STR6r+4cGepyHkcWOQSw==
 
 delegates@^1.0.0:
   version "1.0.0"
@@ -4942,13 +4954,6 @@ globule@^1.0.0:
     glob "~7.1.1"
     lodash "~4.17.10"
     minimatch "~3.0.2"
-
-good-listener@^1.2.2:
-  version "1.2.2"
-  resolved "https://registry.npmjs.org/good-listener/-/good-listener-1.2.2.tgz#d53b30cdf9313dffb7dc9a0d477096aa6d145c50"
-  integrity sha1-1TswzfkxPf+33JoNR3CWqm0UXFA=
-  dependencies:
-    delegate "^3.1.2"
 
 graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2, graceful-fs@^4.1.6, graceful-fs@^4.2.0, graceful-fs@^4.2.2, graceful-fs@^4.2.3, graceful-fs@^4.2.4:
   version "4.2.4"
@@ -8196,11 +8201,9 @@ pretty-time@^1.1.0:
   integrity sha512-28iF6xPQrP8Oa6uxE6a1biz+lWeTOAPKggvjB8HAs6nVMKZwf5bG++632Dx614hIWgUPkgivRfG+a8uAXGTIbA==
 
 prismjs@^1.22.0:
-  version "1.22.0"
-  resolved "https://registry.npmjs.org/prismjs/-/prismjs-1.22.0.tgz#73c3400afc58a823dd7eed023f8e1ce9fd8977fa"
-  integrity sha512-lLJ/Wt9yy0AiSYBf212kK3mM5L8ycwlyTlSxHBAneXLR0nzFMlZ5y7riFPF3E33zXOF2IH95xdY5jIyZbM9z/w==
-  optionalDependencies:
-    clipboard "^2.0.0"
+  version "1.27.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.27.0.tgz#bb6ee3138a0b438a3653dd4d6ce0cc6510a45057"
+  integrity sha512-t13BGPUlFDR7wRB5kQDG4jjl7XeuH6jbJGt11JHPL96qwsEHNX2+68tFXqc1/k+/jALsbSWJKUOT/hcYAZ5LkA==
 
 process-nextick-args@~2.0.0:
   version "2.0.1"
@@ -8954,11 +8957,6 @@ section-matter@^1.0.0:
     extend-shallow "^2.0.1"
     kind-of "^6.0.0"
 
-select@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.npmjs.org/select/-/select-1.1.2.tgz#0e7350acdec80b1108528786ec1d4418d11b396d"
-  integrity sha1-DnNQrN7ICxEIUoeG7B1EGNEbOW0=
-
 "semver@2 || 3 || 4 || 5", semver@^5.4.1, semver@^5.5.0, semver@^5.5.1, semver@^5.6.0:
   version "5.7.1"
   resolved "https://registry.npmjs.org/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
@@ -9709,11 +9707,6 @@ timsort@^0.3.0:
   version "0.3.0"
   resolved "https://registry.npmjs.org/timsort/-/timsort-0.3.0.tgz#405411a8e7e6339fe64db9a234de11dc31e02bd4"
   integrity sha1-QFQRqOfmM5/mTbmiNN4R3DHgK9Q=
-
-tiny-emitter@^2.0.0:
-  version "2.1.0"
-  resolved "https://registry.npmjs.org/tiny-emitter/-/tiny-emitter-2.1.0.tgz#1d1a56edfc51c43e863cbb5382a72330e3555423"
-  integrity sha512-NB6Dk1A9xgQPMoGqC5CVXn123gWyte215ONT5Pp5a0yt4nlEoO1ZWeCwpncaekPHXO60i47ihFnZPiRPjRMq4Q==
 
 tmp@^0.0.33:
   version "0.0.33"
